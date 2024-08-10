@@ -43,4 +43,3 @@ npm run test:unit
 ```sh
 npm run lint
 ```
-# rover-landing-manager-web
