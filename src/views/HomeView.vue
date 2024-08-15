@@ -14,7 +14,7 @@ onBeforeMount(async () => {
         plateau.value = response[0];
     }
 
-    if (!plateau.value) {
+    if (!plateau.value?._id) {
         window.location.href = '/create-plateau';
     }
 })
@@ -28,7 +28,7 @@ async function destroyPlateau(): Promise<void> {
 </script>
 
 <template>
-    <div v-if="plateau" class="w-full h-full p-6 flex justify-center items-center content-center">
+    <div v-if="plateau?._id" class="w-full h-full p-6 flex justify-center items-center content-center">
         <div class="w-5/12 rounded-lg shadow-lg border mt-4">
             <div class="w-full py-2 text-center border-b">
                 <span class="text-2xl text-gray-700 font-bold">Hover Center Control</span>
