@@ -3,9 +3,11 @@ import { onBeforeMount, onMounted, ref } from 'vue'
 import { PlateauDTO } from '../resources/plateau/plateau.dto';
 import { PlateauService } from '../resources/plateau/plateau.service';
 import RoverTableComponent from '../components/RoverTableComponent.vue';
+import { useRouter } from 'vue-router';
 
 const plateau = ref<PlateauDTO>(new PlateauDTO());
 const plateauService: PlateauService = new PlateauService();
+const router = useRouter();
 
 onBeforeMount(async () => {
     const response: PlateauDTO[] = await plateauService.get();
@@ -15,14 +17,14 @@ onBeforeMount(async () => {
     }
 
     if (!plateau.value?._id) {
-        window.location.href = '/create-plateau';
+        router.push('/create-plateau');
     }
 })
 
 async function destroyPlateau(): Promise<void> {
     if (confirm('Are you sure you want to delete the plateau?')) {
         await plateauService.delete(plateau.value._id);
-        window.location.href = '/'
+        router.push('/create-plateau');
     }
 }
 </script>

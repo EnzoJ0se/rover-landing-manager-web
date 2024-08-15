@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { reactive, ref } from "vue";
+import { useRouter } from "vue-router";
 import { PlateauDTO } from "../resources/plateau/plateau.dto";
 import { PlateauService } from "../resources/plateau/plateau.service";
 
 const plateauService: PlateauService = new PlateauService();
 const plateauDTO: PlateauDTO = reactive<PlateauDTO>(new PlateauDTO());
-
+const router = useRouter()
 
 function validatePlateauInput(input: string): boolean {
     const regex: RegExp = /^[0-9]+ [0-9]+$/;
@@ -21,7 +22,7 @@ function savePlateau() {
     }
 
 
-    plateauService.post(plateauDTO).then(() => window.location.href = '/');
+    plateauService.post(plateauDTO).then(() => router.push('/'));
 }
 </script>
 

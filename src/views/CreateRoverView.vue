@@ -7,9 +7,11 @@ import { CardinalDirectionEnum } from "../enum/cardinal-direction.enum";
 import { RoverService } from "../resources/rover/rover.service";
 import { PlateauDTO } from "../resources/plateau/plateau.dto";
 import { PlateauService } from "../resources/plateau/plateau.service";
+import { useRouter } from "vue-router";
 
 const plateauService: PlateauService = new PlateauService();
 const roverService: RoverService = new RoverService();
+const router = useRouter();
 
 const roverInputs: RoverInput[] = reactive<RoverInput[]>([]);
 const plateau = ref<PlateauDTO>(new PlateauDTO());
@@ -82,7 +84,7 @@ function save(): void {
         return;
     }
 
-    roverService.post({ data: roverInputs }, 'create-many').then(() => window.location.href = '/');
+    roverService.post({ data: roverInputs }, 'create-many').then(() => router.push('/'));
 }
 </script>
 
