@@ -10,7 +10,9 @@
         "test:unit": "vitest",
         "build-only": "vite build",
         "type-check": "vue-tsc --build --force",
-        "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
+        "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+        "build-docker": "docker build -t \"rover-landing-manager-web\" .",
+        "start-docker": "docker run -p 8080:8080 rover-landing-manager-web"
     },
     "dependencies": {
         "axios": "^1.7.3",
