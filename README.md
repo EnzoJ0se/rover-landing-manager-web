@@ -25,14 +25,15 @@ npm install
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+### Run with Docker
 
+Run the following command to build the docker image:
 ```sh
-npm run build
+npm run build-docker
 ```
 
-### Lint with [ESLint](https://eslint.org/)
-
+To Execute the aplication execute the command:
 ```sh
-npm run lint
+npm run start-docker
 ```
+The application will be served on <a href="http://localhost:8080/">localhost:8080</a>
