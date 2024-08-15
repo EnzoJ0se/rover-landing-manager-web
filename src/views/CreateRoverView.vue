@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { onBeforeMount, reactive, ref } from "vue";
 import { RoverDTO } from "../resources/rover/rover.dto";
-import { Coordinate } from "../types/coordinate";
-import { RoverInput } from "../types/rover-input";
+import { type Coordinate } from "../types/coordinate";
+import { type RoverInput } from "../types/rover-input";
 import { CardinalDirectionEnum } from "../enum/cardinal-direction.enum";
 import { RoverService } from "../resources/rover/rover.service";
 import { PlateauDTO } from "../resources/plateau/plateau.dto";
@@ -12,9 +12,9 @@ const plateauService: PlateauService = new PlateauService();
 const roverService: RoverService = new RoverService();
 
 const roverInputs: RoverInput[] = reactive<RoverInput[]>([]);
-const plateau = ref<PlateauDTO>(null);
-const position = ref<string>(null);
-const instructions = ref<string>(null);
+const plateau = ref<PlateauDTO>(new PlateauDTO());
+const position = ref<string>('');
+const instructions = ref<string>('');
 
 onBeforeMount(async () => {
     const response: PlateauDTO[] = await plateauService.get();
@@ -71,8 +71,8 @@ function addRover(): void {
         instructions: instructions.value,
     });
 
-    position.value = null;
-    instructions.value = null;
+    position.value = '';
+    instructions.value = '';
 }
 
 function save(): void {

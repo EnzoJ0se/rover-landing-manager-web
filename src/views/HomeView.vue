@@ -4,7 +4,7 @@ import { PlateauDTO } from '../resources/plateau/plateau.dto';
 import { PlateauService } from '../resources/plateau/plateau.service';
 import RoverTableComponent from '../components/RoverTableComponent.vue';
 
-const plateau = ref<PlateauDTO>(null);
+const plateau = ref<PlateauDTO>(new PlateauDTO());
 const plateauService: PlateauService = new PlateauService();
 
 onBeforeMount(async () => {

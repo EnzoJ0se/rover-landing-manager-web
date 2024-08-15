@@ -25,7 +25,7 @@ async function deleteRover(rover: RoverDTO) {
         return;
     }
 
-    await roverService.value.delete(rover._id);
+    await roverService.value.delete(<string>rover._id);
     await refresh();
 }
 </script>
@@ -51,7 +51,7 @@ async function deleteRover(rover: RoverDTO) {
                     </td>
                 </tr>
 
-                <tr v-for="rover in rovers" :key="rover._id" class="table-row">
+                <tr v-for="rover in rovers" :key="rover._id + ''" class="table-row">
                     <td class="table-cell text-center">
                         {{ rover.x }}
                     </td>

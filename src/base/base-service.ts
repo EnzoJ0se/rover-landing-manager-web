@@ -26,7 +26,7 @@ export abstract class BaseService {
         return axios.get(url, options).then((response) => response.data?.map((item: any) => this.bindData(item)));
     }
 
-    public async find(id: number): Promise<any> {
+    public async find(id: number | string): Promise<any> {
         const url = this.bindJsonApi();
 
         return axios.get(`${url}/${id}`).then((response) => this.bindData(response.data?.data));
@@ -42,7 +42,7 @@ export abstract class BaseService {
         return axios.post(url, data);
     }
 
-    public async put(data: any, id?: number, endpoint?: string): Promise<AxiosResponse> {
+    public async put(data: any, id?: number | string, endpoint?: string): Promise<AxiosResponse> {
         let url = this.bindJsonApi();
 
         url = endpoint ? `${url}/${endpoint}` : url;
@@ -58,13 +58,13 @@ export abstract class BaseService {
         return axios.put(url, data);
     }
 
-    public async delete(id: number): Promise<AxiosResponse> {
+    public async delete(id: number | string): Promise<AxiosResponse> {
         const url = this.bindJsonApi();
 
         return axios.delete(`${url}/${id}`)
     }
 
-    public deleteWithConfirmation(id: number): void {
+    public deleteWithConfirmation(id: number | string): void {
         const response = confirm('Deseja realmente excluir este registro?');
 
         if (response) {
