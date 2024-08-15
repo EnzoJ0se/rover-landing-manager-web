@@ -1,19 +1,18 @@
 # rover-landing-manager-web
 
-This template should help get you started developing with Vue 3 in Vite.
+## Installation
 
-## Recommended IDE Setup
+Start with cloning this repo on your local machine:
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+```sh
+$ git clone https://github.com/EnzoJ0se/rover-landing-manager-web.git
+$ cd rover-landing-manager-web
+```
 
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
+Copy the environment file:
+```sh
+cp src/environment/environment.example.ts src/environment/environment.ts
+```
 ## Project Setup
 
 ```sh
@@ -30,12 +29,6 @@ npm run dev
 
 ```sh
 npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
 ```
 
 ### Lint with [ESLint](https://eslint.org/)
