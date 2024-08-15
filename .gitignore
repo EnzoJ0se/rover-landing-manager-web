@@ -13,7 +13,7 @@ dist
 dist-ssr
 coverage
 *.local
-src/environment/environment.ts
+/src/environment/environment.ts
 
 /cypress/videos/
 /cypress/screenshots/
